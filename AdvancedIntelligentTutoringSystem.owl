@@ -1,0 +1,100 @@
+
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+
+    <!-- Ontology Definition -->
+    <owl:Ontology rdf:about="http://www.example.org/IntelligentTutoringSystem"/>
+
+    <!-- Classes -->
+    <owl:Class rdf:about="#Element"/>
+    <owl:Class rdf:about="#Metal"/>
+    <owl:Class rdf:about="#NonMetal"/>
+    <owl:Class rdf:about="#Metalloid"/>
+    <owl:Class rdf:about="#Student"/>
+    <owl:Class rdf:about="#Tutor"/>
+    <owl:Class rdf:about="#Feedback"/>
+
+    <!-- Subclass Relationships -->
+    <rdfs:subClassOf rdf:resource="#Element" rdf:about="#Metal"/>
+    <rdfs:subClassOf rdf:resource="#Element" rdf:about="#NonMetal"/>
+    <rdfs:subClassOf rdf:resource="#Element" rdf:about="#Metalloid"/>
+
+    <!-- Data Properties -->
+    <owl:DatatypeProperty rdf:about="#hasAtomicNumber">
+        <rdfs:domain rdf:resource="#Element"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="#hasSymbol">
+        <rdfs:domain rdf:resource="#Element"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="#belongsToCategory">
+        <rdfs:domain rdf:resource="#Element"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="#knowledgeLevel">
+        <rdfs:domain rdf:resource="#Student"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="#learningProgress">
+        <rdfs:domain rdf:resource="#Student"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="#feedbackMessage">
+        <rdfs:domain rdf:resource="#Feedback"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="#feedbackType">
+        <rdfs:domain rdf:resource="#Feedback"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+    <!-- Individuals -->
+    <owl:NamedIndividual rdf:about="#Hydrogen">
+        <rdf:type rdf:resource="#NonMetal"/>
+        <hasAtomicNumber rdf:datatype="&xsd;integer">1</hasAtomicNumber>
+        <hasSymbol rdf:datatype="&xsd;string">H</hasSymbol>
+        <belongsToCategory rdf:datatype="&xsd;string">NonMetal</belongsToCategory>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#Oxygen">
+        <rdf:type rdf:resource="#NonMetal"/>
+        <hasAtomicNumber rdf:datatype="&xsd;integer">8</hasAtomicNumber>
+        <hasSymbol rdf:datatype="&xsd;string">O</hasSymbol>
+        <belongsToCategory rdf:datatype="&xsd;string">NonMetal</belongsToCategory>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#Sodium">
+        <rdf:type rdf:resource="#Metal"/>
+        <hasAtomicNumber rdf:datatype="&xsd;integer">11</hasAtomicNumber>
+        <hasSymbol rdf:datatype="&xsd;string">Na</hasSymbol>
+        <belongsToCategory rdf:datatype="&xsd;string">Metal</belongsToCategory>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#Student1">
+        <rdf:type rdf:resource="#Student"/>
+        <knowledgeLevel rdf:datatype="&xsd;string">Intermediate</knowledgeLevel>
+        <learningProgress rdf:datatype="&xsd;string">Understands periodic table</learningProgress>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#Feedback1">
+        <rdf:type rdf:resource="#Feedback"/>
+        <feedbackMessage rdf:datatype="&xsd;string">Try revisiting atomic structure basics.</feedbackMessage>
+        <feedbackType rdf:datatype="&xsd;string">Corrective</feedbackType>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#Feedback2">
+        <rdf:type rdf:resource="#Feedback"/>
+        <feedbackMessage rdf:datatype="&xsd;string">Good job! You mastered this topic.</feedbackMessage>
+        <feedbackType rdf:datatype="&xsd;string">Positive</feedbackType>
+    </owl:NamedIndividual>
+
+</rdf:RDF>
